@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>teste - 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
+		html {
+		  overflow: hidden;
+		}
+		body {
+		  font-family: 'Merriweather Sans', sans-serif;
+		  margin: 0px;
+		}
+		#thanks {
+		  padding: 10%;
+		}
+		#thanks-button {
+		  cursor: pointer;
+		  padding: 2%;
+		  color: #fff;
+		  position: absolute;
+		  bottom: 0%;
+		  z-index: 12;
+		  background: #000;
+		    -webkit-transition: all 1s ease;
+		  -moz-transition: all 1s ease;
+		  -ms-transition: all 1s ease;
+		  -o-transition: all 1s ease;
+		  transition: all 1s ease;
+		}
+		#close-cross {
+		   cursor: pointer;
+		}
+		.container {
+		  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d80d6+0,05306d+34,05306d+70,1d80d6+100 */
+		background: #1d80d6; /* Old browsers */
+		background: -moz-linear-gradient(-45deg,  #1d80d6 0%, #05306d 34%, #05306d 70%, #1d80d6 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(-45deg,  #1d80d6 0%,#05306d 34%,#05306d 70%,#1d80d6 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(135deg,  #1d80d6 0%,#05306d 34%,#05306d 70%,#1d80d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d80d6', endColorstr='#1d80d6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		  position: absolute;
+		  width: 100vw;
+		  height: 100vh;
+		}
+		.ps4-icons {
+		    position: relative; 
+		    width:12vw;
+		    margin:auto;
+		    margin-top: 10vw;
+		  -webkit-transition: all 1s ease;
+		  -moz-transition: all 1s ease;
+		  -ms-transition: all 1s ease;
+		  -o-transition: all 1s ease;
+		  transition: all 1s ease;
+		}
+
+		@-moz-keyframes scaling {
+		  0% {
+		    transform: rotate(270deg) scale(0);
+		  }
+		  100% {
+		    transform: rotate(360deg) scale(1);
+		  }
+		}
+		@-webkit-keyframes scaling {
+		  0% {
+		    transform: rotate(270deg) scale(0);
+		  }
+		  100% {
+		    transform: rotate(360deg) scale(1);
+		  }
+		}
+
+		@keyframes scaling {
+		  0% {
+		    transform: rotate(270deg) scale(0);
+		  }
+		  100% {
+		    transform: rotate(360deg) scale(1);
+		  }
+		}
+		@-o-keyframes scaling {
+		  0% {
+		    transform: rotate(270deg) scale(0);
+		  }
+		  100% {
+		    transform: rotate(360deg) scale(1);
+		  }
+		}
+
+
+		.cross-icon {
+		  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/cross.png) no-repeat;
+		  background-size: 100%;
+		  width: 4vw;
+		  height: 4vw;
+		  margin: 1vw;
+		  float:left;
+		}
+
+		.square-icon {
+		  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/square.png) no-repeat;
+		  background-size: 100%;
+		  width: 4vw;
+		  height: 4vw;
+		  margin: 1vw;
+		  float:left;
+		}
+		.triangle-icon {
+		  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/triangle.png) no-repeat;
+		  background-size: 100%;
+		  width: 4vw;
+		  height: 4vw;
+		  margin: 1vw;
+		  float:left;
+		}
+		.circle-icon {
+		  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/circle.png) no-repeat;
+		  background-size: 100%;
+		  width: 4vw;
+		  height: 4vw;
+		  margin: 1vw;
+		  float:left;
+		}
+
+		#thanks {
+		    -webkit-transition: all 1s ease;
+		  -moz-transition: all 1s ease;
+		  -ms-transition: all 1s ease;
+		  -o-transition: all 1s ease;
+		  transition: all 1s ease;
+		  position: absolute;
+		  bottom: -50%;
+		  background: #000;
+		  color: #fff;
+		  padding: 1%;
+		}
+		#thanks a {
+		  color: #fff;
+		  text-decoration: underline;
+		  font-weight: normal;
+		}
+
+		.home{
+
+		}
+
+		.nav{
+			padding: 20%;
+			display: inline-flex;
+		}
+		.block{
+			margin-right: 10px;
+		}
+		img.imagem{
+			margin: 3px;
+		}
+		.block:hover{
+			border: white solid 3px;
+		}
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="home">
+		<div class="head">
+			<div class="nav">
+				<div class="block"><img class="imagem" src="media/destiny.jpg" width="200px" height="200px"></div>		
+				<div class="block"><img class="imagem" src="media/destiny.jpg" width="200px" height="200px"></div>		
+				<div class="block"><img class="imagem" src="media/destiny.jpg" width="200px" height="200px"></div>		
+				<div class="block"><img class="imagem" src="media/destiny.jpg" width="200px" height="200px"></div>		
+			</div>			
+		</div>
+	</div>
+
+
+
+  <div class="ps4-icons" style="display: none;">
+    <div class="square-icon ps-icon"></div>
+    <div class="cross-icon ps-icon"></div>
+    <div class="circle-icon ps-icon"></div>
+    <div class="triangle-icon ps-icon"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	
+</script>
+
+<script type="text/javascript">
+
+	function start(){
+		var x = document.querySelector("home");
+		x.
+	}
+	
+
+  function randomShape(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+  
+  function loadingScreen(){ 
+    var cross = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/cross.png';
+    var circle = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/circle.png';
+    var triangle = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/triangle.png';
+    var square = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/square.png';
+    
+    var elements = document.querySelectorAll('.ps-icon');
+        Array.prototype.forEach.call(elements, function(el, i){
+          setTimeout(function(){ 
+            el.style.animation = "scaling";
+            el.style.animationDuration = "1s";
+            el.style.animationIterationCount = "1"; 
+            el.style.backgroundImage = "url("+randomShape([triangle,square,circle,cross])+")";      
+      }, (i * 400));
+            el.style.animation = "";
+            el.style.animationDuration = "";
+            el.style.animationIterationCount = "";  
+    });
+    
+    function changeShape(){  
+        var elements = document.querySelectorAll('.ps-icon');
+        Array.prototype.forEach.call(elements, function(el, i){
+              setTimeout(function(){ 
+                el.style.animation = "scaling";
+                el.style.animationDuration = "1s";
+                el.style.animationIterationCount = "1"; 
+                el.style.backgroundImage = "url("+randomShape([triangle,square,circle,cross])+")";      
+          }, 100 + (i * 300));
+          el.style.animation = "";
+          el.style.animationDuration = "";
+          el.style.animationIterationCount = "";  
+        });
+    }
+    setInterval(changeShape,3000);   
+  }
+  
+  loadingScreen();
+
+})();
+</script>
+
+</body>
+</html>
