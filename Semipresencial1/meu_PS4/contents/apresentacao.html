@@ -5,6 +5,7 @@
 	<title>Apresentação página</title>
 	<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 	<script type="text/javascript" src="../core/ela.js"></script>
+	<meta name="viewport" content="width=320px">
 	<style type="text/css">
 		body{
 			background: #1d80d6;
@@ -19,24 +20,6 @@
 		.container{
 		}
 
-		.assistent.t0{
-			background-image: url(../media/assistent-face/ela.png);
-		    background-repeat: no-repeat;
-		    position: relative;
-		    /* width: 214px; */
-		    height: 427px;
-		    background-position: -994px 19px;
-		    top: 46vh;
-		}
-		.assistent.t1{
-			background-image: url(../media/assistent-face/ela.png);
-		    background-repeat: no-repeat;
-		    position: relative;
-		    width: 300px;
-		    height: 427px;
-		    background-position: -662px 17px;
-		    top: 46vh;
-		}
 
 		.apresentation-box{
 			width: 60%;
@@ -50,6 +33,7 @@
 		    border-color: #58bdf3;
 		    border-style: double;
 		    border-radius: 5%;
+		    z-index: 1;
 		}
 		.apresentation-box .textos{
 			color: white;
@@ -66,10 +50,39 @@
     		letter-spacing: 5px;    
 		}
 
+		.assistent{
+			background-image: url(../media/assistent-face/ela.png);
+		    background-repeat: no-repeat;
+		    width: 300px;
+    		height: 370px;
+    		position: fixed;
+		    bottom:0;
+		    left:0;
+    	}
+
+		.assistent.t0{
+			background-position:-982px -35px;
+		}
+		.assistent.t1{
+			background-position: -669px 17px;	    
+		}
+		.assistent.t2{
+			background-position: -12px -860px;	    
+		}
+		.assistent.t3{
+			background-position: -334px -860px;
+		}
+		.assistent.t4{
+			background-position: -657px -860px;	    
+		}
+		.assistent.t5{
+			background-position: -980px -860px;	    
+		}
+
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container" onkeypress="log();">
 		<div class="apresentation-box">
 			<div class="textos">
 				<p class="titulo">O que é Lorem Ipsum?</p>
@@ -77,7 +90,11 @@
 			</div>
 		</div>
 		<div class="assistent t0"></div>
+		
 	</div>
-	<script type="text/javascript">responsiveVoice.speak("Guilherme lindão","Brazilian Portuguese Female");</script>
+	<script type="text/javascript">
+	function log(){
+		responsiveVoice.speak("Guilherme lindão","Brazilian Portuguese Female");
+	}</script>
 </body>
 </html>
