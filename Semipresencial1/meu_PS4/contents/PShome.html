@@ -6,19 +6,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<style type="text/css">
 		body {
-		  	/*font-family: 'Merriweather Sans', sans-serif;
-		 	margin: 0px;
-		  	background-color: black;
-			background-image: url('../media/HOME2.jpg');
-			background-repeat: no-repeat;
-		    background-attachment: fixed;
-		    background-position: center;
-		    background-size: cover;*/
+		  	font-family: 'Merriweather Sans', sans-serif;
 		    background-image: url(../media/HOME3.jpg);
 		    background-repeat: no-repeat;
 		    max-width: 100%;
 		    background-size: cover;
 		    background-color: #000a25;
+		}
+
+		@media screen and (max-width: 930px){
+			body{
+				background-size: contain; 
+			}
 		}
 
 		.flooting{
@@ -49,8 +48,9 @@
 			margin-right: 133px;
 		}
 		.tempo .time{
-			padding: 0 16px;
-    		margin-left: 170px;
+			position: absolute;
+		    top: 0;
+		    left: 0;
 		}
 		p.titulo{
 			display: none;
@@ -78,11 +78,10 @@
 			document.querySelector('p.titulo').style.display = "none";
 			if(mostrar)
 				document.querySelector('p.titulo').style.display = "block";
-			console.log("uaaauu");
 		}
 
 		$(document).ready(function(){
-			$(".flooting").hover(function(){
+			$(".flooting-title").hover(function(){
 				mostrarTitulo(true);
 			},function(){
 				mostrarTitulo(false);
