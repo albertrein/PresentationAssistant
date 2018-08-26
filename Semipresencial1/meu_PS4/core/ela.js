@@ -65,6 +65,7 @@ class Ela {
 		this.currentSlide--;		
 		this.title.textContent = this.slidesTitleText[this.currentSlide];
 		this.body.textContent = this.slidesBodyText[this.currentSlide];
+		this.newFace();
 	}
 
 	setSlide(posicaoSlide){
@@ -76,6 +77,7 @@ class Ela {
 		this.currentSlide = posicaoSlide;		
 		this.title.textContent = this.slidesTitleText[this.currentSlide];
 		this.body.textContent = this.slidesBodyText[this.currentSlide];
+		this.newFace();
 	}
 
 	comando(command){

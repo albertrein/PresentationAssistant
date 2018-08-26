@@ -85,6 +85,7 @@
 		@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 
 	</style>
+	
 </head>
 <body>
 	<div class="container" onkeypress="log();">
@@ -101,7 +102,7 @@
 	/*function log(){
 		responsiveVoice.speak("Guilherme lindão","Brazilian Portuguese Female");
 	}*/
-	var ela2 = new Ela();
+	//var ela2 = new Ela();
 	
 	//ela2.setSlide(-1);
 
@@ -114,11 +115,30 @@
 	
 	
 
-	setInterval(function (){
-		//ela2.log();
-		ela2.nextSlide();
-	},2000);
+	// setInterval(function (){
+	// 	//ela2.log();
+	// 	ela2.nextSlide();
+	// },2000);
 
 </script>
+<script type="text/javascript">
+		var ela2 = new Ela();
+		document.onkeydown = function(evt) {
+		    evt = evt || window.event;
+		    if (evt.keyCode == 39 || evt.keyCode == 38) {
+		        ela2.nextSlide();
+		    }
+		    if (evt.keyCode == 37 || evt.keyCode == 40) {
+		        ela2.backSlide();
+		    }
+		};
+
+		// document.onkeydown = function(evt) {
+		//     evt = evt || window.event;
+		//     if (evt.DownKey && evt.keyCode == 90) {
+		//         alert("Ctrl-Z");
+		//     }
+		// };
+	</script>
 </body>
 </html>
