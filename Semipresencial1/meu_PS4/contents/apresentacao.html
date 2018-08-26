@@ -17,10 +17,6 @@
 			height: 98vh;
 		}
 
-		.container{
-		}
-
-
 		.apresentation-box{
 			width: 60%;
 		     height: auto; 
@@ -64,7 +60,7 @@
 			background-position:-982px -35px;
 		}
 		.assistent.t1{
-			background-position: -669px 17px;	    
+			background-position: -658px -35px;	    
 		}
 		.assistent.t2{
 			background-position: -12px -860px;	    
@@ -78,6 +74,15 @@
 		.assistent.t5{
 			background-position: -980px -860px;	    
 		}
+		.assistent.t6{
+			background-position: -980px -445px;
+		}
+		.assistent.t7{
+			background-position: -980px -445px;
+		}
+
+		.begin{position:relative;animation:animateright 0.4s}
+		@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 
 	</style>
 </head>
@@ -85,16 +90,35 @@
 	<div class="container" onkeypress="log();">
 		<div class="apresentation-box">
 			<div class="textos">
-				<p class="titulo">O que é Lorem Ipsum?</p>
-				<p class="corpo-texto">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
+				<p class="titulo begin"></p>
+				<p class="corpo-texto begin"></p>
 			</div>
 		</div>
-		<div class="assistent t0"></div>
+		<div class="assistent"></div>
 		
 	</div>
 	<script type="text/javascript">
-	function log(){
+	/*function log(){
 		responsiveVoice.speak("Guilherme lindão","Brazilian Portuguese Female");
-	}</script>
+	}*/
+	var ela2 = new Ela();
+	
+	//ela2.setSlide(-1);
+
+	// setTimeout(function(){
+	// 	ela2.nextSlide();	
+	// },2000);
+	// setTimeout(function(){
+	// 	ela2.backSlide();
+	// },5000);
+	
+	
+
+	setInterval(function (){
+		//ela2.log();
+		ela2.nextSlide();
+	},2000);
+
+</script>
 </body>
 </html>
