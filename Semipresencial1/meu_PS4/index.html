@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Página cerregamento</title>
+		<title>STARTUP PAGE</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<meta name="robots" content="nofollow">
+		<meta name="googlebot" content="noindex">
 		<style type="text/css">
 			body{
 				background-color: black;
@@ -32,12 +34,35 @@
 			  	100% { transform: rotate(360deg); }
 			}
 		</style>
-
 		
 	</head>
 	<body>
 		<div class="container">
 			<div class="loader"></div>			
 		</div>
+		<img id="image1" src="https://i.pinimg.com/474x/37/5c/bc/375cbc2e01c710f24eb57bd80e595b3f.jpg" style="display: none;" />
+		<script type="text/javascript">
+
+			setTimeout(function(){
+				window.location = 'contents/PShome.html';
+			},5000);
+
+			bannerImage = document.getElementById('image1');
+			imgData = getBase64Image(bannerImage);
+			localStorage.setItem("imgData", imgData);
+
+			function getBase64Image(img) {
+			    var canvas = document.createElement("canvas");
+			    canvas.width = img.width;
+			    canvas.height = img.height;
+
+			    var ctx = canvas.getContext("2d");
+			    ctx.drawImage(img, 0, 0);
+
+			    var dataURL = canvas.toDataURL("image/jpg");
+
+			    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+			}
+		</script>
 	</body>
 </html>

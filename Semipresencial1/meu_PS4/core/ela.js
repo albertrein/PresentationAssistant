@@ -1,5 +1,6 @@
 class Ela {
 	constructor(){
+		//INicia variáveis
 		this.slidesTitleText = ['Title #0', 'Title #1', 'Title #2', 'FIM DA APRESENTAÇÃO'];
 		this.slidesBodyText = [
 		'Silvio Santos Ipsum ma tem ou no tem o celular do milhouamm? Valendo um milho de reaisammm. Eu no queria perguntar isso publicamente, ma vou perguntar. Carla, voc tem o ensino fundamentauam? Mah roda a roduamm. Vem pra l, mah voc vai pra c. Agora vai, agora vem pra lamm. Eu no queria perguntar isso publicamente, ma vou perguntar. Carla, voc tem o ensino fundamentauam? Ma! Ao adquirir o carn do Ba, voc estar concorrendo a um prmio de cem mil reaisam. O prmio  em barras de ouro, que vale mais que dinheiroam.  com voc Lombardiam.',
@@ -10,36 +11,24 @@ class Ela {
 		this.currentSlide = 0;
 		this.title = document.querySelector('p.titulo');
 		this.body = document.querySelector('p.corpo-texto');
-		this.imagem = document.querySelector('div.assistent');		
-		this.setSlide(0);
-		this.newFace();
+		this.imagem = document.querySelector('div.assistent');
+
+		this.setSlide(0); //Inicia apresentação
 	}
 
-	iniciarGravacao() {
-	    if (window.hasOwnProperty('webkitSpeechRecognition')) {
-	        var recognition = new webkitSpeechRecognition();
-	        recognition.continuous = false;
-	        recognition.interimResults = false;
-	        recognition.lang = "pr-BR";
-	        recognition.start();
-
-	        recognition.onresult = function(e) {
-	            recognition.stop();
-	            comando(e.results[0][0].transcript);
-	        };
-
-	        recognition.onerror = function(e) {
-	            console.log("Erro ... Encerrando a gravação");
-	            recognition.stop();
-	        }
-	    }
-	}
-
+	
 	verificaAcao(movimento){
 		if(movimento >= 0 && movimento < this.slidesBodyText.length)
 			return 1; //OK
 		console.log("verifivaAcao:"+this.currentSlide);
 		return 0; //Not OK - Error
+	}
+
+	action(){
+		this.title.innerHTML = this.slidesTitleText[this.currentSlide];
+		this.body.innerHTML = this.slidesBodyText[this.currentSlide];
+		this.newFace();
+		this.speak(this.slidesTitleText[this.currentSlide]);
 	}
 
 	nextSlide(){
@@ -49,11 +38,7 @@ class Ela {
 		}
 
 		this.currentSlide++;
-		
-		this.title.innerHTML = this.slidesTitleText[this.currentSlide];
-		this.body.innerHTML = this.slidesBodyText[this.currentSlide];
-		this.newFace();
-		this.speak(this.slidesTitleText[this.currentSlide]);
+		this.action();
 	}
 
 	backSlide(){
@@ -62,10 +47,8 @@ class Ela {
 			return 0//impossivel de continuar
 		}
 
-		this.currentSlide--;		
-		this.title.innerHTML = this.slidesTitleText[this.currentSlide];
-		this.body.innerHTML = this.slidesBodyText[this.currentSlide];
-		this.newFace();
+		this.currentSlide--;
+		this.action();
 	}
 
 	setSlide(posicaoSlide){
@@ -74,19 +57,10 @@ class Ela {
 			return 0//impossivel de continuar
 		}
 
-		this.currentSlide = posicaoSlide;		
-		this.title.innerHTML = this.slidesTitleText[this.currentSlide];
-		this.body.innerHTML = this.slidesBodyText[this.currentSlide];
-		this.newFace();
+		this.currentSlide = posicaoSlide;
+		this.action();
 	}
 
-	comando(command){
-	    if(command == "log"){
-	      console.log("Helloooo");
-	    }else{
-	      console.log("Erro. Comando não reconhecido.");
-	    }
-	}
 
 	newFace(){
 	  let string = "assistent t"+Math.floor(Math.random() * 7);
@@ -96,5 +70,36 @@ class Ela {
 	speak(textoFala){
 		responsiveVoice.speak(textoFala,"Brazilian Portuguese Female");
 	}
+
+	//// RECONHECIMENTO DE VOZ
+	// iniciarGravacao() {
+	//     if (window.hasOwnProperty('webkitSpeechRecognition')) {
+	//         var recognition = new webkitSpeechRecognition();
+	//         recognition.continuous = false;
+	//         recognition.interimResults = false;
+	//         recognition.lang = "pr-BR";
+	//         recognition.start();
+
+	//         recognition.onresult = function(e) {
+	//             recognition.stop();
+	//             executar(e.results[0][0].transcript);
+	//         };
+
+	//         recognition.onerror = function(e) {
+	//             console.log("Erro ... Encerrando a gravação");
+	//             recognition.stop();
+	//         }
+	//     }
+	// }
+
+	// executar(command){
+	//     if(command == "log"){
+	//       console.log("Helloooo");
+	//     }else{
+	//       console.log("Erro. Comando não reconhecido.");
+	//     }
+	// }
+
+
 }
 
