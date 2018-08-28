@@ -72,25 +72,32 @@ class Ela {
 	}
 
 	//// RECONHECIMENTO DE VOZ
-	// iniciarGravacao() {
-	//     if (window.hasOwnProperty('webkitSpeechRecognition')) {
-	//         var recognition = new webkitSpeechRecognition();
-	//         recognition.continuous = false;
-	//         recognition.interimResults = false;
-	//         recognition.lang = "pr-BR";
-	//         recognition.start();
+	// function startDictation() {
 
-	//         recognition.onresult = function(e) {
-	//             recognition.stop();
-	//             executar(e.results[0][0].transcript);
-	//         };
+ //      if (window.hasOwnProperty('webkitSpeechRecognition')) {
 
-	//         recognition.onerror = function(e) {
-	//             console.log("Erro ... Encerrando a gravação");
-	//             recognition.stop();
-	//         }
-	//     }
-	// }
+ //        var recognition = new webkitSpeechRecognition();
+
+ //        recognition.continuous = false;
+ //        recognition.interimResults = false;
+
+ //        recognition.lang = "pt-BR";
+ //        recognition.start();
+
+ //        recognition.onresult = function(e) {
+ //          document.getElementById('transcript').value
+ //                                   = e.results[0][0].transcript;
+ //                                   console.log(e.results[0][0].transcript);
+ //          recognition.stop();
+ //          //document.getElementById('labnol').submit();
+ //        };
+
+ //        recognition.onerror = function(e) {
+ //          recognition.stop();
+ //        }
+
+ //      }
+ //    }
 
 	// executar(command){
 	//     if(command == "log"){
