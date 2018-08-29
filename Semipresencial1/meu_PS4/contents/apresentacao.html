@@ -103,6 +103,7 @@
 		
 	</div>
 
+
 <script type="text/javascript">
 		var ela2 = new Ela();
 		document.onkeydown = function(evt) {
@@ -114,6 +115,34 @@
 		        ela2.backSlide();
 		    }
 		};
+	
+		setInterval(function(){
+			getData();
+		},5000);
+
+		function getData(){
+			$.ajax({
+	        url: "controle/text.txt",
+	        async: false,   // asynchronous request? (synchronous requests are discouraged...)
+	        cache: false,   // with this, you can force the browser to not make cache of the retrieved data
+	        dataType: "text",  // jQuery will infer this, but you can set explicitly
+	        success: function( data, textStatus, jqXHR ) {
+	            var resourceContent = data; // can be a global variable too...
+	            console.log(resourceContent);
+	            ela2.executar(resourceContent);
+	            apagaArquivo();
+	        }
+   		});
+
+
+		function apagaArquivo(){
+			var data = {
+            	apaga: "text"
+        	};			
+			var x = $.post("controle/controle.php", data);
+			return x;
+		}
 	</script>
+
 </body>
 </html>

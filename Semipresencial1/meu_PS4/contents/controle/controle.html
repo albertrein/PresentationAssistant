@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<title>Controle site</title>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<meta name="robots" content="nofollow">
+	<meta name="googlebot" content="noindex">
+	<style type="text/css">
+		body{
+			background-color: #f1f1f1;
+		}
+		button{
+			padding: 50%;
+			margin: 20px;
+		}
+		.text-reconhecido{
+			background-color: brown;
+		    margin: 20px;
+		    padding: 3%;
+		    width: 100%;
+		    color: wheat;
+		    font-size: 100px;
+		    overflow: scroll;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button class="rec">GRAVAR!</button>
+		<!-- <button onclick="reconhecimento('outback');" ></button>
+		<button onclick="reconhecimento('carai burracha');" ></button>
+		<button onclick="reconhecimento('teste nao vai');" ></button> -->
+	</div>
+	<div class="text-reconhecido"></div>
+	<script>
+	    function startDictation() {
+
+	      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+	        var recognition = new webkitSpeechRecognition();
+
+	        recognition.continuous = false;
+	        recognition.interimResults = false;
+
+	        recognition.lang = "pt-BR";
+	        recognition.start();
+
+	        recognition.onresult = function(e) {
+	          	document.getElementById('transcript').value = e.results[0][0].transcript;
+	          	console.log(e.results[0][0].transcript);
+	          	document.querySelector('.text-reconhecido').innerHTML = e.results[0][0].transcript;
+	          	reconhecimento(e.results[0][0].transcript);
+	          recognition.stop();
+	          //document.getElementById('labnol').submit();
+	        };
+
+	        recognition.onerror = function(e) {
+	          recognition.stop();
+	        }
+
+	      }
+	    }
+
+		function reconhecimento(string){
+
+			var data = {
+            	fn: "filename",
+            	str: string
+        	};
+
+        	var post = $.post("controle.php", data);
+
+        	post.done(function( data ) {
+		    	//alert("Dados Enviados");
+		  	});
+		}
+	</script>
+</body>
+</html>

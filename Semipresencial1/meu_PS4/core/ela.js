@@ -71,42 +71,19 @@ class Ela {
 		responsiveVoice.speak(textoFala,"Brazilian Portuguese Female");
 	}
 
-	//// RECONHECIMENTO DE VOZ
-	// function startDictation() {
 
- //      if (window.hasOwnProperty('webkitSpeechRecognition')) {
-
- //        var recognition = new webkitSpeechRecognition();
-
- //        recognition.continuous = false;
- //        recognition.interimResults = false;
-
- //        recognition.lang = "pt-BR";
- //        recognition.start();
-
- //        recognition.onresult = function(e) {
- //          document.getElementById('transcript').value
- //                                   = e.results[0][0].transcript;
- //                                   console.log(e.results[0][0].transcript);
- //          recognition.stop();
- //          //document.getElementById('labnol').submit();
- //        };
-
- //        recognition.onerror = function(e) {
- //          recognition.stop();
- //        }
-
- //      }
- //    }
-
-	// executar(command){
-	//     if(command == "log"){
-	//       console.log("Helloooo");
-	//     }else{
-	//       console.log("Erro. Comando não reconhecido.");
-	//     }
-	// }
-
+	executar(command){
+	    if(command == "log"){
+	      console.log(command);
+	    }else if(command == "Próximo slide" || command == "Próximo"){
+	      console.log("Próximo slide");
+	      this.nextSlide();
+	    }else if(command == "Voltar slide" || command == "Anterior" || command == "Slide anterior"){
+	      console.log("Slide anterior");
+	      this.backSlide();
+	    }else{
+	    	console.log(">>"command+" não foi reconhecido");
+	    }
+	}
 
 }
-

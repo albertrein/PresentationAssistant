@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<title>Controle site</title>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<meta name="robots" content="nofollow">
+	<meta name="googlebot" content="noindex">
+	<style type="text/css">
+		button{
+			padding: 15%;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button onclick="reconhecimento('outback');" ></button>
+		<button onclick="reconhecimento('carai burracha');" ></button>
+		<button onclick="reconhecimento('teste nao vai');" ></button>
+	</div>
+	<script type="text/javascript">
+		function reconhecimento(string){
+
+			var data = {
+            	fn: "filename",
+            	str: string
+        	};
+
+        	var post = $.post("controle.php", data);
+
+        	post.done(function( data ) {
+		    	alert("Dados Enviados");
+		  	});
+		}
+	</script>
+</body>
+</html>
