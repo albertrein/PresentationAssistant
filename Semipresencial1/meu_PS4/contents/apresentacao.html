@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Apresentação página</title>
-	<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+	<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 	<script type="text/javascript" src="../core/ela.js"></script>
-	<meta name="viewport" content="width=320px">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<style type="text/css">
 		body{
 			background: #1d80d6;
@@ -17,6 +17,9 @@
 			height: 98vh;
 		}
 
+		ol{
+			list-style-type: none;
+		}
 		.apresentation-box{
 			width: 60%;
 		     height: auto; 
@@ -32,17 +35,18 @@
 		    z-index: 1;
 		}
 		.apresentation-box .textos{
-			color: white;
-		    text-align: center;
+			color: white;		    
 		    padding: 11px;
 		    font-family: monospace;
 		}
 		.apresentation-box .textos p.titulo{
-			font-size: 28px;
+			text-align: center;
+			font-size: 31px;
 			font-style: italic;
 		}
 		.apresentation-box .textos p.corpo-texto{
-			font-size: 24px;
+			text-align: left;
+			font-size: 30px;
     		letter-spacing: 5px;    
 		}
 
@@ -122,26 +126,19 @@
 
 		function getData(){
 			$.ajax({
-	        url: "controle/text.txt",
-	        async: false,   // asynchronous request? (synchronous requests are discouraged...)
-	        cache: false,   // with this, you can force the browser to not make cache of the retrieved data
-	        dataType: "text",  // jQuery will infer this, but you can set explicitly
-	        success: function( data, textStatus, jqXHR ) {
-	            var resourceContent = data; // can be a global variable too...
-	            console.log(resourceContent);
-	            ela2.executar(resourceContent);
-	            apagaArquivo();
-	        }
-   		});
+		        url: "controle/text.txt",
+		        async: false,   // asynchronous request? (synchronous requests are discouraged...)
+		        cache: false,   // with this, you can force the browser to not make cache of the retrieved data
+		        dataType: "text",  // jQuery will infer this, but you can set explicitly
+		        success: function( data, textStatus, jqXHR ) {
+		            var resourceContent = data; // can be a global variable too...
+		            console.log(resourceContent);
+		            ela2.executar(resourceContent);
+		            //ela2.apagaArquivo();
+		        }
+   			});
+		}	
 
-
-		function apagaArquivo(){
-			var data = {
-            	apaga: "text"
-        	};			
-			var x = $.post("controle/controle.php", data);
-			return x;
-		}
 	</script>
 
 </body>

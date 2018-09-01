@@ -15,6 +15,10 @@
 			padding: 50%;
 			margin: 20px;
 		}
+		.rec{
+			background-image: url('https://dankhor.com.br/media/microphone.png');
+			background-repeat: no-repeat; 
+		}
 		.text-reconhecido{
 			background-color: brown;
 		    margin: 20px;
@@ -28,7 +32,7 @@
 </head>
 <body>
 	<div>
-		<button class="rec">GRAVAR!</button>
+		<button class="rec" onclick="startDictation()">GRAVAR!</button>
 		<!-- <button onclick="reconhecimento('outback');" ></button>
 		<button onclick="reconhecimento('carai burracha');" ></button>
 		<button onclick="reconhecimento('teste nao vai');" ></button> -->
@@ -48,7 +52,7 @@
 	        recognition.start();
 
 	        recognition.onresult = function(e) {
-	          	document.getElementById('transcript').value = e.results[0][0].transcript;
+	          	//document.getElementById('transcript').value = e.results[0][0].transcript;
 	          	console.log(e.results[0][0].transcript);
 	          	document.querySelector('.text-reconhecido').innerHTML = e.results[0][0].transcript;
 	          	reconhecimento(e.results[0][0].transcript);
@@ -64,7 +68,7 @@
 	    }
 
 		function reconhecimento(string){
-
+			console.log("#Reconhecimento");
 			var data = {
             	fn: "filename",
             	str: string
